@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="per.study.mapper.UserMapper">
+
+    <!--
+		mapper标签namespace属性的取值必须是dao接口的全限定类名
+		select等标签id属性的取值必须是dao接口的方法名
+	-->
+    <!--查询所有-->
+    <!--List<User> findAll();-->
+    <select id="queryList" resultType="per.study.domain.User">
+        select * from user;
+    </select>
+
+</mapper>

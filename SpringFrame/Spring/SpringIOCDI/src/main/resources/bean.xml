@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Spring中依赖注入
+        Dependency Injection
+        1.注入数据类型
+            1）基本数据类型和String
+            2）其他bean类型
+            3）复杂类型/集合类型
+        2.注入方式
+            1) 使用构造函数提供
+               在bean标签内部，使用标签constructor-arg
+                   type：指定要注入的数据的数据类型
+                   index：为构造函数中指定索引位置的参数服务
+                   name：为构造函数中指定名称的参数赋值
+                   value：为基本数据类型和String提供数据
+                   ref：用于指定其他bean类型数据
+               优势：在获取bean对象时，注入数据时必须的操作，否则对象无法创建成功
+               弊端：改变了bean对象的实例化方式，使我们在创建对象时，如果用不到这些数据，也必须提供
+               <bean id="person1" class="per.study.domain.Person1">
+                    <constructor-arg name="name" value="test"/>
+                    <constructor-arg name="age" value="18"/>
+                    <constructor-arg name="birthday" ref="now"/>
+               </bean>
+
+            2) 使用set方法提供
+               在bean标签内部，使用标签property
+                   name：用于指定注入时所调用的set方法名称
+                   value：为基本数据类型和String提供数据
+                   ref：用于指定其他bean类型数据
+               优势：创建对象时没有明确的限制，可以直接使用默认构造函数
+               弊端：如果有某个成员必须有值，则获取对象是有可能set方法没有执行
+
+               用于给List结构集合注入的标签
+                    list array set
+               用于给Map结构集合注入的标签
+                    map props
+               结构相同，标签可以互换
+
+            3) 使用注解提供
+    -->
+    <bean id="person2" class="per.study.domain.Person2">
+        <property name="name" value="Tom"/>
+        <property name="age" value="18"/>
+        <property name="birthday" ref="now"/>
+    </bean>
+    <bean id="now" class="java.util.Date"/>
+
+    <bean id="person3" class="per.study.domain.Person3">
+        <property name="strings">
+            <array>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </array>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </list>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </set>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="str1" value="value1"/>
+                <entry key="str2" value="value2"/>
+            </map>
+        </property>
+
+        <property name="prop">
+            <props>
+                <prop key="username">Tom</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
