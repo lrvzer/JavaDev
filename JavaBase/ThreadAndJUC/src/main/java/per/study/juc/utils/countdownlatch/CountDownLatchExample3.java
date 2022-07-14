@@ -3,6 +3,9 @@ package per.study.juc.utils.countdownlatch;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * latch.await(...) 释放
+ */
 public class CountDownLatchExample3 {
 
     public static void main(String[] args) throws InterruptedException {
