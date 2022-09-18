@@ -4,8 +4,7 @@ public class TicketWindowRunnable implements Runnable{
 
     private final int MAX = 500;
     private int index = 1;
-
-    private final Object MONITOR = new Object();
+    private static final Object MONITOR = new Object();
 
     @Override
     public void run() {

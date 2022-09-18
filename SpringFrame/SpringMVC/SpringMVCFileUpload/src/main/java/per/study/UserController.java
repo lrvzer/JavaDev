@@ -3,7 +3,6 @@ package per.study;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
@@ -14,14 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController
+{
 
     @RequestMapping("/fileUploadServer")
     public String fileUploadServer(MultipartFile upload) throws IOException {
-        String fileServer = "http://localhost:9090/fileUploadServer/uploads/";
+        String fileServer = "http://localhost:8090/FileUploadServer/uploads/";
 
         String filename = upload.getOriginalFilename();
 
@@ -36,9 +37,9 @@ public class UserController {
         return "success";
     }
 
-
     /**
      * fileUploadSpringMVC
+     * 
      * @param request
      * @param upload
      * @return
@@ -48,8 +49,8 @@ public class UserController {
     public String fileUploadSpringMVC(HttpServletRequest request, MultipartFile upload) throws IOException {
         System.out.println("fileUploadSpringMVC");
 
-        /*使用fileupload组件完成文件上传*/
-        /*上传位置*/
+        /* 使用fileupload组件完成文件上传 */
+        /* 上传位置 */
         String path = request.getSession().getServletContext().getRealPath("/uploads");
         File file = new File(path);
         if (!file.exists()) {
@@ -63,33 +64,38 @@ public class UserController {
 
     /**
      * 文件上传
+     * 
      * @return
      */
     @RequestMapping("/fileUploadServlet")
     public String fileUploadServlet(HttpServletRequest request) throws Exception {
         System.out.println("fileUploadServlet");
 
-        /*使用fileupload组件完成文件上传*/
-        /*上传位置*/
-        String path = request.getSession().getServletContext().getRealPath("/uploads");
+        /* 使用fileupload组件完成文件上传 */
+        /* 上传位置 */
+        String path = request.getSession().getServletContext().getRealPath("/uploads/");
+        System.out.println("====" + path + "======");
         File file = new File(path);
         if (!file.exists()) {
             file.mkdirs();
         }
 
-        /*解析request对象，获取上传文件项*/
+        /* 解析request对象，获取上传文件项 */
         DiskFileItemFactory factory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(factory);
         List<FileItem> items = upload.parseRequest(request);
 
-        /*遍历*/
-        for (FileItem item:items) {
+        /* 遍历 */
+        for (FileItem item : items) {
             if (item.isFormField()) { /* 普通表单项 */
 
-            } else { /* 上传文件项 */
+            }
+            else { /* 上传文件项 */
                 String filename = item.getName();
+                String uuid = UUID.randomUUID().toString().replace("-", "");
+                filename = uuid + "_" + filename;
                 item.write(new File(path, filename));
-                item.delete(); /*删除临时文件*/
+                item.delete(); /* 删除临时文件 */
             }
         }
 

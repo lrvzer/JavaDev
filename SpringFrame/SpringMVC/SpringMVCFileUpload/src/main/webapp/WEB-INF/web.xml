@@ -20,7 +20,7 @@
     <servlet-name>dispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
+
   <!--配置中文乱码过滤器-->
   <filter>
     <filter-name>characterEncodingFilter</filter-name>

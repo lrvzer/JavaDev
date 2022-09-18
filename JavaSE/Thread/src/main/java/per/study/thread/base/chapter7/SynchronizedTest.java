@@ -2,7 +2,7 @@ package per.study.thread.base.chapter7;
 
 public class SynchronizedTest {
 
-    private final static Object LOCK = new Object();
+    private static final Object LOCK = new Object();
 
     public static void main(String[] args) {
         Runnable runnable = () -> {
