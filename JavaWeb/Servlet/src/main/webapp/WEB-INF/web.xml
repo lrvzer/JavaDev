@@ -1,0 +1,80 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>org.example.servlet.HelloServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+
+        <!-- 一对一映射关系 -->
+        <url-pattern>/hello</url-pattern>
+
+        <!-- 一对多映射关系 -->
+        <!-- <url-pattern>/hello/*</url-pattern> -->
+
+        <!-- 默认请求路径 -->
+        <!-- <url-pattern>/*</url-pattern> -->
+
+        <!-- 可以自定义后缀实现请求映射 -->
+        <!-- <url-pattern>*.do</url-pattern> -->
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ErrorServlet</servlet-name>
+        <servlet-class>org.example.servlet.ErrorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ErrorServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <!--配置一些web应用初始化参数-->
+    <context-param>
+        <param-name>mysql-url</param-name>
+        <param-value>jdbc:mysql://localhost:3306/mybatis</param-value>
+    </context-param>
+
+<!--    <servlet>-->
+<!--        <servlet-name>hello</servlet-name>-->
+<!--        <servlet-class>org.maven.servlet.HelloServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>hello</servlet-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>get</servlet-name>
+        <servlet-class>org.example.servlet.GetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>get</servlet-name>
+        <url-pattern>/get</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>gp</servlet-name>
+        <servlet-class>org.example.servlet.ServletDemo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>gp</servlet-name>
+        <url-pattern>/gp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>gps</servlet-name>
+        <servlet-class>org.example.servlet.ServletDemo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>gps</servlet-name>
+        <url-pattern>/gps</url-pattern>
+    </servlet-mapping>
+
+</web-app>
