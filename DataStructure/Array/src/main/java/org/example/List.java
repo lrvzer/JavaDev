@@ -54,6 +54,8 @@ public interface List<E> {
      */
     E remove(int index);
 
+    void remove(E element);
+
     /**
      * 查看元素的位置
      * @param element

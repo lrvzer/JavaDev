@@ -112,8 +112,8 @@ public class ArrayList<E> implements List<E> {
 
         ensureCapacity(size + 1);
 
-        for (int i = size - 1; i >= index; i--) {
-            elements[i + 1] = elements[i];
+        for (int i = size; i > index; i--) {
+            elements[i] = elements[i - 1];
         }
 
         elements[index] = element;
@@ -158,6 +158,11 @@ public class ArrayList<E> implements List<E> {
 
         elements[--size] = null;
         return oldEle;
+    }
+
+    @Override
+    public void remove(E element) {
+        remove(indexOf(element));
     }
 
     /**
