@@ -13,7 +13,12 @@ public class Main {
 //        arrayList.add(arrayList.size() - 1, 10);
 //        System.out.println(arrayList);
         List<Person> persons = new ArrayList<>();
-        persons.add(new Person("Tom"));
-        System.out.println(persons);
+        persons.add(new Person("Tom", 10));
+        persons.clear();
+
+        // 提醒JVM进行垃圾回收
+        System.gc();
+        //
+//        System.out.println(persons);
     }
 }

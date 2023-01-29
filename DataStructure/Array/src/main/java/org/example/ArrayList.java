@@ -54,6 +54,8 @@ public class ArrayList<E> implements List<E> {
      */
     @Override
     public boolean contains(E element) {
+        if (element == null)
+            throw new NullPointerException("null pointer.");
         return indexOf(element) != ELEMENT_NOT_FOUND;
     }
 
@@ -154,7 +156,7 @@ public class ArrayList<E> implements List<E> {
             elements[i - 1] = elements[i];
         }
 
-        size--;
+        elements[--size] = null;
         return oldEle;
     }
 
@@ -166,9 +168,16 @@ public class ArrayList<E> implements List<E> {
      */
     @Override
     public int indexOf(E element) {
-        for (int i = 0; i < size; i++) {
-            if (elements[i] == element) return i;
+        if (element == null) {
+            for (int i = 0; i < size; i++) {
+                if (elements[i] == null) return i;
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (element.equals(elements[i])) return i;
+            }
         }
+
         return ELEMENT_NOT_FOUND;
     }
 
@@ -177,6 +186,9 @@ public class ArrayList<E> implements List<E> {
      */
     @Override
     public void clear() {
+        for (int i = 0; i < size; i++) {
+            elements[i] = null;
+        }
         size = 0;
     }
 
