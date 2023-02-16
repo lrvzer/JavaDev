@@ -1,17 +1,29 @@
 package org.example;
 
+import org.example.circle.CircleLinkedList;
+import org.example.circle.SingleCircleLinkedList;
 import org.example.single.SingleLinkedListV;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> list = new LinkedList<>();
+        List<Integer> list = new CircleLinkedList<>();
 
-        list.add(10);
-        list.remove(0);
-        list.add(0, 0);
-        list.add(20);
-        list.add(30);
-        list.remove(2);
+        list.add(11);
+        list.add(22);
+        list.add(33);
+        list.add(44);
+
+        list.add(0, 55); // [55, 11, 22, 33, 44]
+        System.out.println(list.toString());
+        list.add(2, 66); // [55, 11, 66, 22, 33, 44]
+        System.out.println(list.toString());
+        list.add(list.size(), 77); // [55, 11, 66, 22, 33, 44, 77]
+        System.out.println(list.toString());
+        list.remove(0); // [11, 66, 22, 33, 44, 77]
+        System.out.println(list.toString());
+        list.remove(2); // [11, 66, 33, 44, 77]
+        System.out.println(list.toString());
+        list.remove(list.size() - 1); // [11, 66, 33, 44]
 
         System.out.println(list);
     }
