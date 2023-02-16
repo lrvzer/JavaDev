@@ -2,7 +2,7 @@ package org.example;
 
 import org.example.entity.Person;
 
-public class Main {
+public class MainArrayList {
     public static void main(String[] args) {
 //        List<Integer> arrayList = new ArrayList();
 //

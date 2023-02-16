@@ -9,8 +9,9 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <modules>
-        <module>Array</module>
+        <module>ArrayList</module>
         <module>LinkedList</module>
+        <module>Stack</module>
     </modules>
 
     <properties>

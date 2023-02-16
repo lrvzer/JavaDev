@@ -1,0 +1,8 @@
+栈
+原则：Last In First Out
+
+int size(); // 元素的数量
+boolean isEmpty(); // 是否为空
+void push(E ele); // 入栈
+E pop(); // 出栈
+E top(); // 获取栈顶元素

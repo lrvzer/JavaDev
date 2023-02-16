@@ -1,10 +1,8 @@
 package org.example;
 
 import org.example.circle.CircleLinkedList;
-import org.example.circle.SingleCircleLinkedList;
-import org.example.single.SingleLinkedListV;
 
-public class Main {
+public class MainLinkedList {
     public static void main(String[] args) {
         testJosephus();
 //        List<Integer> list = new CircleLinkedList<>();
