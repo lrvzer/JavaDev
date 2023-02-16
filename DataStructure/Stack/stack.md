@@ -1,9 +1,29 @@
+## 栈
+
+> 原则：Last In First Out
+
+```java
+public interface Stack {
+    int size(); // 元素的数量
+    boolean isEmpty(); // 是否为空
+    void push(E ele); // 入栈
+    E pop(); // 出栈
+    E top(); // 获取栈顶元素
+    void clear(); // 清空栈
+}
+```
+
+### 栈的应用
+#### （1）验证括号有效性
+```Java
 package org.example;
 
 import java.util.HashMap;
 
 public class MainStack {
+    
     private static HashMap<Character, Character> map = new HashMap<>();
+    
     static {
         map.put('(', ')');
         map.put('[', ']');
@@ -11,15 +31,7 @@ public class MainStack {
     }
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
-        stack.push(11);
-        stack.push(22);
-        stack.push(33);
-        stack.push(44);
-
-        while (!stack.isEmpty()) {
-            System.out.println(stack.pop());
-        }
+        // TODO isValid(str)
     }
 
     /**
@@ -46,3 +58,6 @@ public class MainStack {
     }
 
 }
+```
+
+#### （2）表达式

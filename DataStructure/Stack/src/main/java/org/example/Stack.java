@@ -24,4 +24,8 @@ public class Stack<E>{
         return list.size();
     }
 
+    public void clear() {
+        list.clear();
+    }
+
 }
