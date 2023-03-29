@@ -27,10 +27,12 @@ public class ThreadInterrupt1 {
             }
         });
 
+        t.setDaemon(true);
         t.start();
+
         Thread.sleep(100);
-        System.out.println(t.isInterrupted());
+        System.out.println("t is interrupted: " + t.isInterrupted());
         t.interrupt();
-        System.out.println(t.isInterrupted());
+        System.out.println("t is interrupted: " + t.isInterrupted());
     }
 }

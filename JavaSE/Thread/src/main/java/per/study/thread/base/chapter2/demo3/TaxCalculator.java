@@ -1,4 +1,4 @@
-package per.study.thread.base.chapter2;
+package per.study.thread.base.chapter2.demo3;
 
 public class TaxCalculator {
     private final double salary;

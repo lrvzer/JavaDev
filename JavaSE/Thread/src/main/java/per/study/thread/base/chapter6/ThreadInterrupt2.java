@@ -1,5 +1,8 @@
 package per.study.thread.base.chapter6;
 
+/**
+ * 打断主线程，t1线程处于阻塞中，程序仍然运行
+ */
 public class ThreadInterrupt2 {
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> {
@@ -22,7 +25,7 @@ public class ThreadInterrupt2 {
 
         t2.start();
         try {
-            t1.join();
+            t1.join(); // t1 阻塞
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

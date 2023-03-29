@@ -1,6 +1,6 @@
 package per.study.thread.base.chapter7;
 
-public class SynchronizedThis {
+public class SynchronizedThis2 {
     public static void main(String[] args) {
         ThisLock lock = new ThisLock();
         new Thread(()->{

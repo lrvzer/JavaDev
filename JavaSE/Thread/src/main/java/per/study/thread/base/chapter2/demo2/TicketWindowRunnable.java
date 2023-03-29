@@ -1,4 +1,4 @@
-package per.study.thread.base.chapter2;
+package per.study.thread.base.chapter2.demo2;
 
 public class TicketWindowRunnable implements Runnable{
 

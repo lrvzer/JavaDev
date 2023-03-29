@@ -1,8 +1,8 @@
-package per.study.thread.base.chapter7;
+package per.study.thread.base.chapter7.demo1;
 
 public class TicketWindowRunnable implements Runnable{
 
-    private final int MAX = 500;
+    private static final int MAX = 500;
     private int index = 1;
     private static final Object MONITOR = new Object();
 

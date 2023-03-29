@@ -1,4 +1,4 @@
-package per.study.thread.base.chapter2;
+package per.study.thread.base.chapter2.demo3;
 
 @FunctionalInterface
 public interface CalculatorStrategy {

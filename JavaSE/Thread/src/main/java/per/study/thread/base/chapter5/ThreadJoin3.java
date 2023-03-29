@@ -20,7 +20,7 @@ public class ThreadJoin3 {
         }
 
         long endTimestamp = System.currentTimeMillis();
-        System.out.printf("Save data begin timestamp is:%s, end timestamp is:%s\n", beginTimestamp, endTimestamp);
+        System.out.printf("Save data begin timestamp is:%s, end timestamp is:%s, consumer time is %s\n", beginTimestamp, endTimestamp, endTimestamp-beginTimestamp);
 
     }
 }

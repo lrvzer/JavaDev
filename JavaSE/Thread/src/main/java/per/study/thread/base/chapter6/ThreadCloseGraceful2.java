@@ -17,6 +17,7 @@ public class ThreadCloseGraceful2 {
                     break;
                 }
             }
+            System.out.println("end of running action.");
             // -----------用return，后面的执行不到
         }
 
@@ -27,7 +28,7 @@ public class ThreadCloseGraceful2 {
         worker.start();
 
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -1,7 +1,22 @@
-package per.study.thread.base.chapter4;
+package per.study.thread.base.chapter5;
 
 import java.util.Optional;
 
+/**
+ *     public final void setPriority(int newPriority) {
+ *         ThreadGroup g;
+ *         checkAccess();
+ *         if (newPriority > MAX_PRIORITY || newPriority < MIN_PRIORITY) {
+ *             throw new IllegalArgumentException();
+ *         }
+ *         if((g = getThreadGroup()) != null) {
+ *             if (newPriority > g.getMaxPriority()) {
+ *                 newPriority = g.getMaxPriority();
+ *             }
+ *             setPriority0(priority = newPriority);
+ *         }
+ *     }
+ */
 public class ThreadSimpleAPI2 {
 
     public static void main(String[] args) {

@@ -13,7 +13,7 @@ public class SynchronizedStatic {
         }
     }
 
-    public synchronized static void m1() {
+    public static synchronized void m1() {
         try {
             System.out.println("m1 " + Thread.currentThread().getName());
             Thread.sleep(10_000L);
@@ -22,7 +22,7 @@ public class SynchronizedStatic {
         }
     }
 
-    public synchronized static void m2() {
+    public static synchronized void m2() {
         try {
             System.out.println("m2 " + Thread.currentThread().getName());
             Thread.sleep(10_000L);

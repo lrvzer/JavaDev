@@ -14,7 +14,7 @@ public class DaemonThread1 {
                 }
             }
         }; // new
-        t.setDaemon(true);
+        t.setDaemon(true); // 需要在启动前使用
         // runnable ->running| ->dead| ->blocked
         t.start();
         try {
@@ -27,5 +27,5 @@ public class DaemonThread1 {
 }
 /**
  * A<-------------------->B
- *  ->daemonThread(health check)
+ * ->daemonThread(health check)
  */

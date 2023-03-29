@@ -16,6 +16,7 @@ public class ThreadService {
                 finished = true;
             } catch (InterruptedException e) {
 //                e.printStackTrace();
+                System.out.println("runner is interrupted.");
             }
         });
         executeThread.start();

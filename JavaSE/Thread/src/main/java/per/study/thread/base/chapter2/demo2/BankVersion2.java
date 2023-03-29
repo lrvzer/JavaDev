@@ -1,6 +1,7 @@
-package per.study.thread.base.chapter2;
+package per.study.thread.base.chapter2.demo2;
 
-public class BankVerson2 {
+public class BankVersion2 {
+
     public static void main(String[] args) {
         final TicketWindowRunnable ticketWindow = new TicketWindowRunnable();
         Thread t1 = new Thread(ticketWindow, "一号柜台");

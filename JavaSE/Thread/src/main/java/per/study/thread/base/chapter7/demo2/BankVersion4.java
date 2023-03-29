@@ -1,6 +1,6 @@
-package per.study.thread.base.chapter7;
+package per.study.thread.base.chapter7.demo2;
 
-public class BankVerson3 {
+public class BankVersion4 {
     public static void main(String[] args) {
         final SynchronizedRunnable ticketWindow = new SynchronizedRunnable();
         Thread t1 = new Thread(ticketWindow, "一号柜台");

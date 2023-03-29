@@ -1,9 +1,9 @@
-package per.study.thread.base.chapter7;
+package per.study.thread.base.chapter7.demo2;
 
 public class SynchronizedRunnable implements Runnable{
 
     // read only
-    private final static int MAX = 500;
+    private static final int MAX = 500;
     private int index = 1;
 
     @Override

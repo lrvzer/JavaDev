@@ -1,13 +1,13 @@
 package per.study.thread.base.chapter8;
 
 public class DeadLock {
-    private OtherService otherService;
+    private final OtherService otherService;
 
     public DeadLock(OtherService otherService) {
         this.otherService = otherService;
     }
 
-    private final static Object lock = new Object();
+    private static final Object lock = new Object();
 
     public void m1() {
         synchronized (lock) {
