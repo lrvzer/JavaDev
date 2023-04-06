@@ -1,4 +1,6 @@
-package org.example.tree;
+package org.example.test;
+
+import org.example.tree.BinarySearchTree;
 
 import java.util.Comparator;
 
@@ -38,16 +40,16 @@ public class BinarySearchTreeMain {
         for (int i = 0; i < data.length; i++)
             binarySearchTree.add(data[i]);
 
-        binarySearchTree.preorderTraversal(element -> System.out.print(element + " "));
-        System.out.println();
-        binarySearchTree.inorderTraversal(element -> System.out.print(element + " "));
-        System.out.println();
-        binarySearchTree.postorderTraversal(element -> System.out.print(element + " "));
-        System.out.println();
-        binarySearchTree.levelOrderTraversal();
-        System.out.println();
-
-        binarySearchTree.levelOrder(element -> System.out.print(element + " "));
+//        binarySearchTree.preorderTraversal(element -> System.out.print(element + " "));
+//        System.out.println();
+//        binarySearchTree.inorderTraversal(element -> System.out.print(element + " "));
+//        System.out.println();
+//        binarySearchTree.postorderTraversal(element -> System.out.print(element + " "));
+//        System.out.println();
+//        binarySearchTree.levelOrderTraversal();
+//        System.out.println();
+//
+//        binarySearchTree.levelOrder(element -> System.out.print(element + " "));
         System.out.println();
 
         System.out.println(binarySearchTree.heightWithNonCursive());
