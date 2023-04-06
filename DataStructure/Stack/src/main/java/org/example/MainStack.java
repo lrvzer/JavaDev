@@ -24,7 +24,7 @@ public class MainStack {
 
     /**
      * 有效括号
-     * @param str
+     * @param str 源数据
      */
     static boolean isValid(String str) {
         Stack<Character> stack = new Stack<>();
