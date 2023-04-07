@@ -276,7 +276,6 @@ public class BinaryTree<E> {
         return true;
     }
 
-
     protected static class Node<E> {
         Node<E> left;
         E element;

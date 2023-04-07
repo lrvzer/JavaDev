@@ -1,10 +1,8 @@
 package org.example.tree;
 
 import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.Queue;
 
-public class BinarySearchTree<E> extends BinaryTree {
+public class BinarySearchTree<E> extends BinaryTree<E> {
     private final Comparator<E> comparator;
 
     public BinarySearchTree() {
@@ -25,8 +23,8 @@ public class BinarySearchTree<E> extends BinaryTree {
     }
 
     private Node<E> invertTree(Node<E> node) {
-        if (node != null)
-            return node;
+        if (node == null)
+            return null;
 
         Node<E> tmp = node.left;
         node.left = node.right;
