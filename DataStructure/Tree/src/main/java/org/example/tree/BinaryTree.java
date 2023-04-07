@@ -1,9 +1,11 @@
 package org.example.tree;
 
+import org.example.printer.BinaryTreeInfo;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BinaryTree<E> {
+public class BinaryTree<E> implements BinaryTreeInfo {
 
     protected int size;
     // 根节点
@@ -274,6 +276,44 @@ public class BinaryTree<E> {
             }
         }
         return true;
+    }
+
+    /**
+     * who is the root node
+     */
+    @Override
+    public Object root() {
+        return root;
+    }
+
+    /**
+     * how to get the left child of the node
+     *
+     * @param node
+     */
+    @Override
+    public Object left(Object node) {
+        return ((Node<E>) node).left;
+    }
+
+    /**
+     * how to get the right child of the node
+     *
+     * @param node
+     */
+    @Override
+    public Object right(Object node) {
+        return ((Node<E>) node).right;
+    }
+
+    /**
+     * how to print the node
+     *
+     * @param node
+     */
+    @Override
+    public Object string(Object node) {
+        return ((Node<E>) node).element;
     }
 
     protected static class Node<E> {

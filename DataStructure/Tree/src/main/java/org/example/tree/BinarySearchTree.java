@@ -22,6 +22,12 @@ public class BinarySearchTree<E> extends BinaryTree<E> {
         return invertTree(root);
     }
 
+    /**
+     * 先序遍历方式翻转
+     *
+     * @param node
+     * @return
+     */
     private Node<E> invertTree(Node<E> node) {
         if (node == null)
             return null;
@@ -32,6 +38,44 @@ public class BinarySearchTree<E> extends BinaryTree<E> {
 
         invertTree(node.left);
         invertTree(node.right);
+
+        return node;
+    }
+
+    /**
+     * 中序遍历方式翻转
+     *
+     * @param node
+     * @return
+     */
+    private Node<E> invertTreeIn(Node<E> node) {
+        if (node == null) return null;
+
+        invertTree(node.left);
+
+        Node<E> tmp = node.left;
+        node.left = node.right;
+        node.right = tmp;
+
+        invertTree(node.left);
+        return node;
+    }
+
+    /**
+     * 后序遍历方式翻转
+     *
+     * @param node
+     * @return
+     */
+    private Node<E> invertTreePost(Node<E> node) {
+        if (node == null) return null;
+
+        invertTree(node.left);
+        invertTree(node.right);
+
+        Node<E> tmp = node.left;
+        node.left = node.right;
+        node.right = tmp;
 
         return node;
     }

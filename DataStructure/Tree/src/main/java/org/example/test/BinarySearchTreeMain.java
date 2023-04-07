@@ -1,5 +1,6 @@
 package org.example.test;
 
+import org.example.printer.BinaryTrees;
 import org.example.tree.BinarySearchTree;
 
 import java.util.Comparator;
@@ -19,7 +20,7 @@ public class BinarySearchTreeMain {
     }
 
     public static void main(String[] args) {
-        test2();
+        test1();
     }
 
     public static void test2() {
@@ -39,6 +40,8 @@ public class BinarySearchTreeMain {
         BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>();
         for (int i = 0; i < data.length; i++)
             binarySearchTree.add(data[i]);
+
+        BinaryTrees.println(binarySearchTree);
 
 //        binarySearchTree.preorderTraversal(element -> System.out.print(element + " "));
 //        System.out.println();
