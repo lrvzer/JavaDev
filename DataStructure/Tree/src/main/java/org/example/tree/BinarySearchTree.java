@@ -85,8 +85,9 @@ public class BinarySearchTree<E> extends BinaryTree<E> {
 
         // 添加第一个节点
         if (root == null) {
-            root = new Node<>(element, null);
+            root = createNode(element, null);
             size++;
+            afterAdd(root);
             return;
         }
 
@@ -114,13 +115,23 @@ public class BinarySearchTree<E> extends BinaryTree<E> {
         }
 
         // 看看插入到父节点的哪个位置
-        Node<E> pNode = new Node<>(element, parent);
+        Node<E> pNode = createNode(element, parent);
         if (comp > 0)
             parent.right = pNode;
         else
             parent.left = pNode;
-
         size++;
+
+        // 新添加结点之后的处理
+        afterAdd(pNode);
+    }
+
+    /**
+     * 添加node之后的调整
+     * @param node 新添加结点
+     */
+    protected void afterAdd(Node<E> node) {
+        // TODO 默认即可，由AVLTree实现
     }
 
     /**
@@ -147,14 +158,15 @@ public class BinarySearchTree<E> extends BinaryTree<E> {
 
     private void remove(Node<E> node) {
         if (node == null) return;
+        size--;
 
         if (node.left != null && node.right != null) { // 删除度为2的结点
             // 找到后继结点
-            Node<E> s = successor(node);
+            Node<E> pNode = successor(node);
             // 用后继结点的值覆盖度为2的结点的值
-            node.element = s.element;
+            node.element = pNode.element;
             // 删除后继结点
-            node = s;
+            node = pNode;
         }
 
         // 删除node结点 (node度为1或者0)
@@ -172,10 +184,12 @@ public class BinarySearchTree<E> extends BinaryTree<E> {
             } else {
                 node.parent.right = child;
             }
+            afterRemove(node);
         }
         // node度为0 且为根结点
         else if (node.parent == null) {
             root = null;
+            afterRemove(node);
         }
         // node度为0，且为叶子结点
         else {
@@ -185,8 +199,13 @@ public class BinarySearchTree<E> extends BinaryTree<E> {
             } else {
                 node.parent.right = null;
             }
+
+            afterRemove(node);
         }
-        size--;
+    }
+
+    protected void afterRemove(Node<E> node) {
+        // TODO AVLTree中重写
     }
 
     /**

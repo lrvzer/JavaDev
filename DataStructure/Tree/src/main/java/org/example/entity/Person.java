@@ -1,4 +1,4 @@
-package org.example.test;
+package org.example.entity;
 
 public class Person implements Comparable<Person> {
 

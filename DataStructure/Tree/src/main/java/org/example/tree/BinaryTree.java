@@ -313,7 +313,7 @@ public class BinaryTree<E> implements BinaryTreeInfo {
      */
     @Override
     public Object string(Object node) {
-        return ((Node<E>) node).element;
+        return node;
     }
 
     protected static class Node<E> {
@@ -321,7 +321,6 @@ public class BinaryTree<E> implements BinaryTreeInfo {
         E element;
         Node<E> right;
         Node<E> parent;
-
         public Node(E element, Node<E> parent) {
             this.element = element;
             this.parent = parent;
@@ -335,6 +334,18 @@ public class BinaryTree<E> implements BinaryTreeInfo {
         public boolean isLeaf() {
             return (left == null && right == null);
         }
+
+        public boolean isLeftChild() {
+            return parent != null && this == parent.left;
+        }
+
+        public boolean isRightChild() {
+            return parent != null && this == parent.right;
+        }
+    }
+
+    protected Node<E> createNode(E element, Node<E> parent) {
+        return new Node<>(element, parent);
     }
 
     public abstract class Visitor<E> {

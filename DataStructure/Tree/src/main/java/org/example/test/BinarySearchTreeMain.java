@@ -1,5 +1,6 @@
 package org.example.test;
 
+import org.example.entity.Person;
 import org.example.printer.BinaryTrees;
 import org.example.tree.BinarySearchTree;
 
