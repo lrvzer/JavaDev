@@ -2,7 +2,7 @@ package org.example.tree;
 
 import java.util.Comparator;
 
-public class AVLTree<E> extends BinarySearchTree<E> {
+public class AVLTree<E> extends BalanceBinarySearchTree<E> {
 
     public AVLTree() {
         this(null);
@@ -87,40 +87,12 @@ public class AVLTree<E> extends BinarySearchTree<E> {
         }
     }
 
-    private void rotateUnify(
-            Node<E> r, // 这颗子树的根结点
-            Node<E> a, Node<E> b, Node<E> c,
-            Node<E> d,
-            Node<E> e, Node<E> f, Node<E> g) {
-
-        // 让d成为这颗子树的根结点
-        d.parent = r.parent;
-        if (r.isRightChild())
-            r.parent.right = d;
-        else if (r.isLeftChild())
-            r.parent.left = d;
-        else
-            root = d;
-
-        // a-b-c
-        b.left = a;
-        b.right = c;
-        if (a != null) a.parent = b;
-        if (c != null) c.parent = b;
+    @Override
+    protected void rotateUnify(Node<E> r, Node<E> a, Node<E> b, Node<E> c, Node<E> d, Node<E> e, Node<E> f, Node<E> g) {
+        super.rotateUnify(r, a, b, c, d, e, f, g);
+        // 更新高度
         updateHeight(b);
-
-        // e-f-g
-        f.left = e;
-        f.right = g;
-        if (e != null) e.parent = f;
-        if (g != null) g.parent = f;
         updateHeight(f);
-
-        // b-d-f
-        d.left = b;
-        d.right = f;
-        f.parent = d;
-        b.parent = d;
         updateHeight(d);
     }
 
@@ -159,72 +131,9 @@ public class AVLTree<E> extends BinarySearchTree<E> {
         }
     }
 
-    /**
-     * 左旋
-     * --grand
-     * ----\
-     * -----\
-     * ----parent
-     * ----/     \
-     * ---/       \
-     * --child     n
-     *
-     * @param grand
-     */
-    private void rotateLeft(Node<E> grand) {
-        Node<E> parent = grand.right;
-        Node<E> child = parent.left;
-        grand.right = child;
-        parent.left = grand;
-        afterRotate(grand, parent, child);
-    }
-
-    /**
-     * 右旋
-     * -----grand
-     * -------/
-     * ------/
-     * ----parent
-     * ----/     \
-     * ---/       \
-     * --n       child
-     *
-     * @param grand
-     */
-    private void rotateRight(Node<E> grand) {
-        Node<E> parent = grand.left;
-        Node<E> child = parent.right;
-
-        grand.left = child;
-        parent.right = grand;
-        afterRotate(grand, parent, child);
-    }
-
-    /**
-     * 旋转之后更新结点性质
-     *
-     * @param grand
-     * @param parent
-     * @param child
-     */
-    private void afterRotate(Node<E> grand, Node<E> parent, Node<E> child) {
-        // 更新parent
-        parent.parent = grand.parent;
-        if (grand.isLeftChild())
-            grand.parent.left = parent;
-        else if (grand.isRightChild())
-            grand.parent.right = parent;
-        else
-            root = parent;
-
-        // 更新child
-        if (child != null) {
-            child.parent = grand;
-        }
-
-        // 更新grand
-        grand.parent = parent;
-
+    @Override
+    protected void afterRotate(Node<E> grand, Node<E> parent, Node<E> child) {
+        super.afterRotate(grand, parent, child);
         // 更新高度
         updateHeight(grand);
         updateHeight(parent);

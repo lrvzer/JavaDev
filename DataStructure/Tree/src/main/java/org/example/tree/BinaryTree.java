@@ -364,7 +364,7 @@ public class BinaryTree<E> implements BinaryTreeInfo {
                 return parent.right;
 
             if (isRightChild())
-                return parent.right;
+                return parent.left;
             return null;
         }
     }

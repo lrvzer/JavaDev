@@ -2,7 +2,7 @@ package org.example.tree;
 
 import java.util.Comparator;
 
-public class RBTree<E> extends BinarySearchTree<E> {
+public class RBTree<E> extends BalanceBinarySearchTree<E> {
     private static final boolean RED = false;
     private static final boolean BLACK = true;
 
@@ -13,9 +13,65 @@ public class RBTree<E> extends BinarySearchTree<E> {
         super(comparator);
     }
 
+    /**
+     * @param node 新添加结点
+     */
     @Override
     protected void afterAdd(Node<E> node) {
-        super.afterAdd(node);
+        Node<E> parent = node.parent;
+
+        // 添加的是根结点 或者 上溢到了根结点
+        if (parent == null) {
+            setBlack(node);
+            return;
+        }
+
+        // 如果父结点是黑色，直接返回
+        if (isBlack(parent)) return;
+
+        // 叔父结点
+        Node<E> uncle = parent.getSibling();
+        // 祖父结点
+        Node<E> grand = setRed(parent.parent);
+        // 叔父结点是红色[B树结点上溢]
+        if (isRed(uncle)) {
+            setBlack(parent);
+            setBlack(uncle);
+
+            // 把祖父结点当作是新添加的结点
+
+            afterAdd(grand);
+            return;
+        }
+
+        // 叔父结点不是红色
+        // L
+        if (parent.isLeftChild()) {
+            // LL
+            if (node.isLeftChild()) {
+                setBlack(parent);
+            }
+            // LR
+            else {
+                setBlack(node);
+                rotateLeft(parent);
+            }
+            rotateRight(grand);
+        }
+        // R
+        else {
+            // RR
+            if (node.isRightChild()) {
+                setBlack(parent);
+            }
+            // RL
+            else {
+                setBlack(node);
+                rotateRight(parent);
+            }
+            rotateLeft(grand);
+        }
+
     }
 
     @Override
