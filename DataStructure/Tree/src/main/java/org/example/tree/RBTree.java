@@ -30,7 +30,7 @@ public class RBTree<E> extends BinarySearchTree<E> {
      * @param color
      */
     private Node<E> setColor(Node<E> node, boolean color) {
-        if (node == null) return node;
+        if (node == null) return null;
         ((RBNode<E>) node).color = color;
         return node;
     }
@@ -86,7 +86,7 @@ public class RBTree<E> extends BinarySearchTree<E> {
     }
 
     private static class RBNode<E> extends Node<E> {
-        boolean color;
+        boolean color = RED;
 
         public RBNode(E element, Node<E> parent) {
             super(element, parent);

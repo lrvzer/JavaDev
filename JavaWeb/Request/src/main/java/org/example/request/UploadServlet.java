@@ -25,8 +25,11 @@ public class UploadServlet extends HttpServlet {
             once = in.read(buffer, total, len);
             total += once;
         }
-        System.out.println(buffer);
         System.out.println(new String(buffer, 0, len));
+
+//        for (int i = 0; i < len; i++) {
+//            System.out.println((byte)buffer[i] + "-->" + (char)(buffer[i]));
+//        }
 
 
         // 通过请求转发

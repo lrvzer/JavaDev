@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class CyclicBarrierExample1 {
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
 
-        final CyclicBarrier cyclicBarrier = new CyclicBarrier(2, new Runnable() {
+        final CyclicBarrier cyclicBarrier = new CyclicBarrier(3, new Runnable() {
             @Override
             public void run() {
 //                System.out.println("all of thread finished. ");
@@ -41,13 +41,13 @@ public class CyclicBarrierExample1 {
         }).start();
 
 
-//        cyclicBarrier.await();
-//        System.out.println("all of thread finished. ");
-        while (true) {
-            System.out.println(cyclicBarrier.getNumberWaiting());
-            System.out.println(cyclicBarrier.getParties());
-            System.out.println(cyclicBarrier.isBroken());
-            TimeUnit.MILLISECONDS.sleep(1000);
-        }
+        cyclicBarrier.await();
+        System.out.println("all of thread finished. ");
+//        while (true) {
+//            System.out.println(cyclicBarrier.getNumberWaiting());
+//            System.out.println(cyclicBarrier.getParties());
+//            System.out.println(cyclicBarrier.isBroken());
+//            TimeUnit.MILLISECONDS.sleep(1000);
+//        }
     }
 }

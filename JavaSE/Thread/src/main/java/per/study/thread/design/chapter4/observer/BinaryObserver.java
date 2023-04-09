@@ -1,4 +1,4 @@
-package per.study.thread.design.chapter4;
+package per.study.thread.design.chapter4.observer;
 
 public class BinaryObserver extends Observer{
 

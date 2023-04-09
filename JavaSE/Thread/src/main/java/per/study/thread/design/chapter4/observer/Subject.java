@@ -1,4 +1,4 @@
-package per.study.thread.design.chapter4;
+package per.study.thread.design.chapter4.observer;
 
 import java.util.ArrayList;
 import java.util.List;

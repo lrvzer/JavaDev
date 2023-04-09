@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 public class ProduceConsumerVersion3 {
 
     private int i = 0;
-    final private Object LOCK = new Object();
+    private final Object LOCK = new Object();
     private volatile boolean isProduce = false;
 
     private void produce() {

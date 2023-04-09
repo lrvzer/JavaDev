@@ -1,4 +1,4 @@
-package per.study.thread.design.chapter17;
+package per.study.thread.design.workerthread.demo2;
 
 import java.util.Arrays;
 
@@ -10,8 +10,11 @@ public class Channel {
     /*货物*/
     private final Request[] requestQueue;
 
+    // 队头
     private int head;
+    // 队尾
     private int tail;
+    // 当前通道上的货物
     private int count;
 
     private final WorkerThread[] workerPool;
@@ -38,7 +41,7 @@ public class Channel {
         Arrays.asList(workerPool).forEach(WorkerThread::start);
     }
 
-    public synchronized void put(Request request) {
+    public synchronized void offer(Request request) {
         while (count >= requestQueue.length) {
             try {
                 this.wait();

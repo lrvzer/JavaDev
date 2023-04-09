@@ -1,4 +1,4 @@
-package per.study.thread.design.classloader.chapter1;
+package per.study.thread.classloader.chapter1;
 
 public class ClassActionUse {
 

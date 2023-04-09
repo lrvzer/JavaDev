@@ -1,4 +1,4 @@
-package per.study.thread.design.chapter17;
+package per.study.thread.design.workerthread.demo2;
 
 public class WorkerClient {
 

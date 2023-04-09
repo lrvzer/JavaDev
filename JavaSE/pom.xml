@@ -15,6 +15,7 @@
         <module>MySQL</module>
         <module>Concurrency</module>
         <module>Guava</module>
+        <module>Intnet</module>
     </modules>
 
     <properties>

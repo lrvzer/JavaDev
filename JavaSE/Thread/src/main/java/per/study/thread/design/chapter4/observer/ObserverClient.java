@@ -1,4 +1,4 @@
-package per.study.thread.design.chapter4;
+package per.study.thread.design.chapter4.observer;
 
 public class ObserverClient {
     public static void main(String[] args) {

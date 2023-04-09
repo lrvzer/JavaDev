@@ -1,4 +1,4 @@
-package per.study.thread.design.chapter17;
+package per.study.thread.design.workerthread.demo2;
 
 import java.util.Random;
 
@@ -19,7 +19,7 @@ public class TransportThread extends Thread {
         try {
             for (int i = 0; true; i++) {
                 Request request = new Request(getName(), i);
-                this.channel.put(request);
+                this.channel.offer(request);
                 Thread.sleep(RANDOM.nextInt(1_000));
             }
         } catch (InterruptedException e) {

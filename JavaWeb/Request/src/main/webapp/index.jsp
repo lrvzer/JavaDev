@@ -22,7 +22,14 @@
     <br>
 
     <form action="${pageContext.request.contextPath}/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="upload"> <br>
+        用户名：<input type="text" name="username"> <br>
+        密码：<input type="password" name="password"> <br>
+        <input type="file" name="upload" multiple="multiple"> <br>
+        <input type="submit" value="上传">
+    </form>
+
+    <form action="${pageContext.request.contextPath}/upload" method="post" enctype="multipart/form-data">
+        用户名：<input type="text" name="username"> <br>
         <input type="submit" value="上传">
     </form>
 </div>
