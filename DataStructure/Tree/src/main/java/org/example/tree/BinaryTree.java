@@ -321,6 +321,7 @@ public class BinaryTree<E> implements BinaryTreeInfo {
         E element;
         Node<E> right;
         Node<E> parent;
+
         public Node(E element, Node<E> parent) {
             this.element = element;
             this.parent = parent;
@@ -335,12 +336,36 @@ public class BinaryTree<E> implements BinaryTreeInfo {
             return (left == null && right == null);
         }
 
+        /**
+         * 是否为左子树
+         *
+         * @return
+         */
         public boolean isLeftChild() {
             return parent != null && this == parent.left;
         }
 
+        /**
+         * 是否为右子树
+         *
+         * @return
+         */
         public boolean isRightChild() {
             return parent != null && this == parent.right;
+        }
+
+        /**
+         * 兄弟结点
+         *
+         * @return
+         */
+        public Node<E> getSibling() {
+            if (isLeftChild())
+                return parent.right;
+
+            if (isRightChild())
+                return parent.right;
+            return null;
         }
     }
 
