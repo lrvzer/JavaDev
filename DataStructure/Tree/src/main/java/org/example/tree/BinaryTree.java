@@ -155,9 +155,10 @@ public class BinaryTree<E> implements BinaryTreeInfo {
             while (p.left != null) {
                 p = p.left;
             }
+            return p;
         }
 
-        while (node.parent != null && node == node.parent.left) {
+        while (node.parent != null && node == node.parent.right) {
             node = node.parent;
         }
 
