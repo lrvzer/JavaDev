@@ -141,11 +141,23 @@ public class RBTree<E> extends BalanceBinarySearchTree<E> {
         return getColor(node) == RED;
     }
 
+    @Override
+    protected Node<E> createNode(E element, Node<E> parent) {
+        return new RBNode<>(element, parent);
+    }
+
     private static class RBNode<E> extends Node<E> {
         boolean color = RED;
 
         public RBNode(E element, Node<E> parent) {
             super(element, parent);
+        }
+
+        @Override
+        public String toString() {
+            String str = "";
+            if (color == RED) str = "R_";
+            return str + element.toString();
         }
     }
 }
