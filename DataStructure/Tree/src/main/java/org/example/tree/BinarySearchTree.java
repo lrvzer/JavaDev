@@ -184,12 +184,12 @@ public class BinarySearchTree<E> extends BinaryTree<E> {
             } else {
                 node.parent.right = child;
             }
-            afterRemove(node, child);
+            afterRemove(child);
         }
         // node度为0 且为根结点
         else if (node.parent == null) {
             root = null;
-            afterRemove(node, null);
+            afterRemove(node);
         }
         // node度为0，且为叶子结点
         else {
@@ -200,11 +200,11 @@ public class BinarySearchTree<E> extends BinaryTree<E> {
                 node.parent.right = null;
             }
 
-            afterRemove(node, null);
+            afterRemove(node);
         }
     }
 
-    protected void afterRemove(Node<E> node, Node<E> replacement) {
+    protected void afterRemove(Node<E> node) {
         // TODO AVLTree中重写
     }
 

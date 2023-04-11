@@ -75,17 +75,14 @@ public class RBTree<E> extends BalanceBinarySearchTree<E> {
     }
 
     @Override
-    protected void afterRemove(Node<E> node, Node<E> replacement) {
-        // 如果删除的结点是红色，直接返回
-        if (isRed(node)) return;
-
-        // 删除结点为黑
-        // 用以取代node的子结点是红色
-        if (isRed(replacement)) {
-            setBlack(replacement);
+    protected void afterRemove(Node<E> node) {
+        // 用以取代node的子结点是红色 || 如果删除的结点是红色，直接返回
+        if (isRed(node)) {
+            setBlack(node);
             return;
         }
 
+        // 删除结点为黑
         Node<E> parent = node.parent;
 
         // 删除结点为黑色，且为根结点
@@ -114,7 +111,7 @@ public class RBTree<E> extends BalanceBinarySearchTree<E> {
                 setRed(sibling);
 
                 if (parentColor)
-                    afterRemove(parent, null);
+                    afterRemove(parent);
             }
             // 兄弟结点的子即诶单至少有一个红色子结点
             else {
@@ -150,7 +147,7 @@ public class RBTree<E> extends BalanceBinarySearchTree<E> {
                 setRed(sibling);
 
                 if (parentColor)
-                    afterRemove(parent, null);
+                    afterRemove(parent);
             }
             // 兄弟结点的子即诶单至少有一个红色子结点
             else {
