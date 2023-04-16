@@ -14,6 +14,7 @@
         <module>Stack</module>
         <module>Queue</module>
         <module>Tree</module>
+        <module>Set</module>
     </modules>
 
     <properties>

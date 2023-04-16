@@ -374,10 +374,10 @@ public class BinaryTree<E> implements BinaryTreeInfo {
         return new Node<>(element, parent);
     }
 
-    public abstract class Visitor<E> {
+    public abstract static class Visitor<E> {
         boolean stop; // 用于停止遍历
 
-        abstract boolean visit(E element);
+        public abstract boolean visit(E element);
     }
 
 }
