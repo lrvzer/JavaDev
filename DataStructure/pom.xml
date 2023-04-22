@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>com.lrw.datastructure</groupId>
     <artifactId>DataStructure</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -15,6 +15,8 @@
         <module>Queue</module>
         <module>Tree</module>
         <module>Set</module>
+        <module>Map</module>
+        <module>HashTable</module>
     </modules>
 
     <properties>
