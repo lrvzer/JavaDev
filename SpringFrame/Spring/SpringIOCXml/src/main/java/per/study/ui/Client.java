@@ -24,6 +24,13 @@ public class Client {
      *  BeanFactory：
      *      它在构建核心容器时，创建对象采取得到策略是延迟加载的方式. Lazy-load
      *
+     *
+     * 如何使用返回创建的对象？
+     *  1.加载bean.xml配置文件
+     *  2.对xml文件进行解析操作
+     *  3.获取xml文件bean标签属性值，如id、class
+     *  4.使用反射根据类全路径创建对象
+     *
      * @param args
      */
     public static void main(String[] args) {

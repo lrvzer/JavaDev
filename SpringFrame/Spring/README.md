@@ -1,0 +1,14 @@
+```
+<modules>
+    <module>SpringIOCXml</module>
+    <module>BeanFactory</module>
+    <module>SpringIOCDI</module>
+    <module>SpringIOCAnno</module>
+    <module>SpringExec</module>
+    <module>Proxy</module>
+    <module>SpringAOPXml</module>
+    <module>SpringAOPAnno</module>
+    <module>SpringJDBCTemplate</module>
+    <module>SpringTransaction</module>
+</modules>
+```

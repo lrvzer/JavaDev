@@ -1,0 +1,32 @@
+server:
+  port: 8080
+--- # 下面是单独的文档
+person:
+  name: 'ZhangSan \n zs'
+  age: 18
+  birthDay: 2010/10/10 12:12:12
+  like: true
+  child:
+    name: "JiHaiTao \n jht"
+    age: 20
+    birthDay: 2010/10/10 12:12:12
+    #    text: [ "abc", "def" ]
+    text:
+      - abc
+      - def
+      - |
+        123
+        456
+      - >
+        789
+        000
+  dogs:
+    - name: black
+      age: 2
+    - name: white
+      age: 3
+  cats:
+    c1:
+      name: blue
+      age: 1
+    c2: { name: gray, age: 4 }

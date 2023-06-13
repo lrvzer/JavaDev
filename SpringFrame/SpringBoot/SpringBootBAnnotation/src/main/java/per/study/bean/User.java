@@ -1,18 +1,17 @@
 package per.study.bean;
 
-public class User
-{
+public class User {
 
     private String name;
     private Integer age;
-    private Pet pet;
+    private Cat cat;
 
-    public Pet getPet() {
-        return pet;
+    public Cat getPet() {
+        return cat;
     }
 
-    public void setPet(Pet pet) {
-        this.pet = pet;
+    public void setPet(Cat cat) {
+        this.cat = cat;
     }
 
     public User() {
