@@ -1,4 +1,7 @@
-package per.study.listener;
+package per.study.listeners;
+
+import per.study.events.AbstractContextEvent;
+import per.study.events.ContextRunningEvent;
 
 public class ContextRunningEventListener implements ContextListener<AbstractContextEvent> {
     @Override

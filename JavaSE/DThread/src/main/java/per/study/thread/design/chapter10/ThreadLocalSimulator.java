@@ -22,8 +22,9 @@ public class ThreadLocalSimulator<T> {
         synchronized (this) {
             Thread key = Thread.currentThread();
             T ret = storage.get(key);
-            if (ret == null) 
+            if (ret == null) {
                 return initialValue();
+            }
             return ret;
         }
     }

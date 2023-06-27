@@ -1,4 +1,4 @@
-package per.study.listener;
+package per.study.events;
 
 import java.io.Serializable;
 

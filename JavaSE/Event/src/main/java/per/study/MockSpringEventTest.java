@@ -1,4 +1,11 @@
-package per.study.listener;
+package per.study;
+
+import per.study.caster.ApplicationEventMulticaster;
+import per.study.caster.SimpleApplicationEventMulticaster;
+import per.study.events.*;
+import per.study.listeners.ContextDestroyEventListener;
+import per.study.listeners.ContextRunningEventListener;
+import per.study.listeners.ContextStartEventListener;
 
 /**
  * @Description
@@ -7,8 +14,8 @@ package per.study.listener;
  **/
 public class MockSpringEventTest {
     public static void main(String[] args) {
-//        testContextLifecycleEventInSync();
-        testContextLifecycleEventInAsync();
+        testContextLifecycleEventInSync();
+//        testContextLifecycleEventInAsync();
     }
 
     private static void testContextLifecycleEventInSync() {
