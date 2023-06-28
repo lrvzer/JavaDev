@@ -53,7 +53,6 @@ public class Document {
     public void save() throws IOException {
         synchronized (this) {
             if (!changed) {
-                System.out.println("nothing..");
                 return;
             }
 
