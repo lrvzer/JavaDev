@@ -10,8 +10,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>cloud-provider-payment</module>
-        <module>cloud-consumer-order</module>
+        <module>cloud-provider-payment8001</module>
+        <module>cloud-consumer-order80</module>
         <module>cloud-api-commons</module>
         <module>cloud-registry-eureka-server7001</module>
         <module>cloud-registry-eureka-server7002</module>
