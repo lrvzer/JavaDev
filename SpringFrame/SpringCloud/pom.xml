@@ -13,6 +13,7 @@
         <module>cloud-provider-payment</module>
         <module>cloud-consumer-order</module>
         <module>cloud-api-commons</module>
+        <module>cloud-registry-eureka-server</module>
     </modules>
 
     <properties>
