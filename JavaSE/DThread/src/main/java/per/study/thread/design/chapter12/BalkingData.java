@@ -1,4 +1,4 @@
-package per.study.thread.design.chapter13.chapter12;
+package per.study.thread.design.chapter12;
 
 import java.io.FileWriter;
 import java.io.IOException;
