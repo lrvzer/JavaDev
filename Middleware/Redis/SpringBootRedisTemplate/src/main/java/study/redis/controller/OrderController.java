@@ -27,7 +27,7 @@ public class OrderController {
 
     @ApiOperation("新keyId查询订单")
     @RequestMapping(value = "/order/{keyId}", method = RequestMethod.GET)
-    public void getOrderById(@PathVariable Integer keyId) {
-        orderService.getOrderById(keyId);
+    public String getOrderById(@PathVariable Integer keyId) {
+        return orderService.getOrderById(keyId);
     }
 }
