@@ -8,7 +8,7 @@ import java.util.Set;
 public class JedisDemo {
     public static void main(String[] args) {
         // 1. Connect to redis server，by IP and Port
-        Jedis jedis = new Jedis("106.55.32.253", 6379);
+        Jedis jedis = new Jedis("127.0.0.1", 6379);
         // 2. Passwd
         jedis.auth("PI3.1415926IP");
         // 3. Access to redis
@@ -30,6 +30,5 @@ public class JedisDemo {
         for (String element : mylist) {
             System.out.println(element);
         }
-
     }
 }
