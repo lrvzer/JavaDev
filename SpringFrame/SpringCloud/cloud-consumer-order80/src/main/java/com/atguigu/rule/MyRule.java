@@ -1,4 +1,4 @@
-package com.guigu.rule;
+package com.atguigu.rule;
 
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
