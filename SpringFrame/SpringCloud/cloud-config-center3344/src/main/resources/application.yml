@@ -1,0 +1,24 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center # 注册进Eureka服务器的微服务
+  cloud:
+    config:
+      server:
+        git:
+          username: a2413044193@gmail.com
+          password: Lrw@1314921
+          force-pull: true
+#          uri: https://github.com/Lirwei/springcloud-config.git
+          uri: https://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@github.com/Lirwei/springcloud-config.git # Github上面的git仓库名字
+          # 搜索目录
+          search-paths:
+            - springcloud-config
+      # 读取分治
+      label: master
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
