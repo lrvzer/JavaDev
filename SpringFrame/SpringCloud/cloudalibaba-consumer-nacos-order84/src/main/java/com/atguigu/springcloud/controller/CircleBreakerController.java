@@ -2,6 +2,7 @@ package com.atguigu.springcloud.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.atguigu.springcloud.entities.CommonResult;
+import com.atguigu.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,8 @@ public class CircleBreakerController {
     private RestTemplate restTemplate;
 
     @RequestMapping("/consumer/fallback/{id}")
-    @SentinelResource(value = "fallback")
+//    @SentinelResource(value = "fallback") // 没有配置
+    @SentinelResource(value = "fallback", fallback = "handlerFallback") // fallback只负责业务异常，相当于Hystrix服务降级
     public CommonResult fallback(@PathVariable Long id) {
         CommonResult result = restTemplate.getForObject(SERVICE_URL + "/paymentSQL/" + id, CommonResult.class, id);
 
@@ -30,5 +32,11 @@ public class CircleBreakerController {
         }
 
         return result;
+    }
+
+
+    public CommonResult handlerFallback(@PathVariable Long id, Throwable e) {
+        Payment payment = new Payment(id, "null");
+        return new CommonResult(444, "兜底异常handlerFallback,exception内容  " + e.getMessage(), payment);
     }
 }
