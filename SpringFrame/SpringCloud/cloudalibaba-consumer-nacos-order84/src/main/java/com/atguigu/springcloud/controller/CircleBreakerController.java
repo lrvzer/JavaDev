@@ -23,7 +23,9 @@ public class CircleBreakerController {
     @RequestMapping("/consumer/fallback/{id}")
 //    @SentinelResource(value = "fallback") // 没有配置
 //    @SentinelResource(value = "fallback", fallback = "handlerFallback") // fallback只负责业务异常，相当于Hystrix服务降级
-    @SentinelResource(value = "fallback", blockHandler = "blockHandler") // blockHandler负责在sentinel里面配置的降级限流
+//    @SentinelResource(value = "fallback", blockHandler = "blockHandler") // blockHandler负责在sentinel里面配置的降级限流
+    @SentinelResource(value = "fallback", fallback = "handlerFallback", blockHandler = "blockHandler")
+    // blockHandler负责在sentinel里面配置的降级限流
     public CommonResult fallback(@PathVariable Long id) {
         CommonResult result = restTemplate.getForObject(SERVICE_URL + "/paymentSQL/" + id, CommonResult.class, id);
 
